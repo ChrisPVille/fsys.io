@@ -26,8 +26,26 @@ description: >- # this means to ignore newlines until "baseurl:"
   to the GameCube to decapping random ICs. It's about time I get organized.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://fsys.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: chrispville
-github_username:  chrispville
+
+social:
+  twitter:
+    name: Twitter
+    username: chrispville
+    url: https://twitter.com/chrispville
+    fa-icon-class: fab fa-twitter
+  github:
+    name: Github
+    url: https://github.com/chrispville
+    fa-icon-class: fab fa-github
+  discord-n64brew:
+    name: N64Brew
+    url: https://discord.gg/WqFgNWf
+    fa-icon-class: fab fa-discord
+  discord-gamecube:
+    name: GCN Discord
+    url: https://discord.gg/gamecube
+    fa-icon-class: fab fa-discord
+
 
 # Build settings
 theme: just-the-docs
@@ -55,35 +73,36 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# Enable or disable the site search
-# Supports true (default) or false
+collections_dir: docs
+
+collections:
+  home:
+    permalink: "/:path/"
+    output: true
+  vg:
+    permalink: "/:collection/:path/"
+    output: true
+  rc:
+    permalink: "/:collection/:path/"
+    output: true
+  proj:
+    permalink: "/:collection/:path/"
+    output: true
+
+just_the_docs:
+  collections:
+    home:
+        name: "Home"
+    vg:
+        name: "Video Game Systems"
+    rc:
+        name: "Retro Computers"
+    proj:
+        name: "Modern Projects"
+
 search_enabled: true
 
-search:
-  # Split pages into sections that can be searched individually
-  # Supports 1 - 6, default: 2
-  heading_level: 2
-  # Maximum amount of previews per search result
-  # Default: 3
-  previews: 3
-  # Maximum amount of words to display before a matched word in the preview
-  # Default: 5
-  preview_words_before: 5
-  # Maximum amount of words to display after a matched word in the preview
-  # Default: 10
-  preview_words_after: 10
-  # Set the search token separator
-  # Default: /[\s\-/]+/
-  # Example: enable support for hyphenated search words
-  tokenizer_separator: /[\s/]+/
-  # Display the relative url in search results
-  # Supports true (default) or false
-  rel_url: true
-  # Enable or disable the search button that appears in the bottom right corner of every page
-  # Supports true or false (default)
-  button: false
-
-  # Aux links for the upper right navigation
+# Aux links for the upper right navigation
 aux_links:
   "Projects on GitHub":
     - "//github.com/chrispville"
@@ -93,7 +112,7 @@ aux_links_new_tab: false
 
 # Footer content
 # appears at the bottom of every page's main content
-footer_content: "Copyright &copy; 2020 Christopher Parish. Distributed by an <a href=\"https://creativecommons.org/licenses/by/4.0/\">CC BY 4.0 license.</a>"
+footer_content: "Copyright &copy; 2020 Christopher Parish. Distributed by a <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0 license.</a>"
 
 # Footer last edited timestamp
 last_edit_timestamp: true # show or hide edit time - page must have `last_modified_date` defined in the frontmatter
@@ -104,5 +123,5 @@ gh_edit_link: true # show or hide edit this page link
 gh_edit_link_text: "Show page sources."
 gh_edit_repository: "https://github.com/chrispville/fsys.io" # the github URL for your repo
 gh_edit_branch: "master" # the branch that your docs is served from
-# gh_edit_source: docs # the source that your files originate from
+gh_edit_source: docs # the source that your files originate from
 gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into the editor immediately
